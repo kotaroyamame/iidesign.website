@@ -38,7 +38,7 @@ gulp
     { base: 'dev/' }
   ).pipe( gulp.dest( 'dest' ) );
 })
-.task('s2', ['webserver'])
+.task('s', ['webserver'])
 .task('default',
     [
         'ts',

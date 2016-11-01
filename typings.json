@@ -1,0 +1,10 @@
+{
+  "name": "iidesign",
+  "dependencies": {},
+  "globalDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20161016133926",
+    "angular-animate": "registry:dt/angular-animate#1.5.0+20160709061515",
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922",
+    "react": "registry:dt/react#0.14.0+20161008064207"
+  }
+}

@@ -26,6 +26,7 @@ var browserSync = require('browser-sync');
 //         }
 //     });
 // })
+gulp
 .task("copy", () => {
   return gulp.src(
     [ 

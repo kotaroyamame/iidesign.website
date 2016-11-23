@@ -9,13 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var MenuComponent = (function () {
+    function MenuComponent() {
+    }
+    return MenuComponent;
+}());
+MenuComponent = __decorate([
+    core_1.Component({
+        selector: 'main-menu',
+        templateUrl: "../view/menu.html",
+    }),
+    __metadata("design:paramtypes", [])
+], MenuComponent);
+exports.MenuComponent = MenuComponent;
 var AppComponent = (function () {
     function AppComponent() {
+        this.orVal = "これがオリジナルだ〜";
+        this.yourName = "koo";
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
+        moduleId: module.id,
         selector: 'my-app',
         templateUrl: "../view/top.html"
     }),

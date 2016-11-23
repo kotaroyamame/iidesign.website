@@ -8,32 +8,32 @@ var minifycss = require('gulp-minify-css');
 var spritesmith = require('gulp.spritesmith');
 var browserSync = require('browser-sync');
 
-gulp
-.task('ts', () => {
-    return gulp.src(['dev/ts/main.ts'])
-        .pipe(typescript({
-            target: 'ES3',
-            removeComments: true,
-            out: 'iidesignwebApp.js'
-        }))
-        .pipe(uglify({compress:false,mangle:false,beautify:false}))
-        .pipe(gulp.dest('dev/js'));
-})
-.task('webserver', () => {
-  return browserSync({
-        server: {
-            baseDir: "./dest/"
-        }
-    });
-})
+// var tsProject = ts.createProject('tsconfig.json');
+// gulp
+// .task('ts', () => {
+//   var tsResult = tsProject.src()
+//     .pipe(tsProject());
+
+//   return tsResult.js
+//     .pipe(uglify({compress:false,mangle:false,beautify:false}))
+//     .pipe(gulp.dest('dev/js'));
+        
+// })
+// .task('webserver', () => {
+//   return browserSync({
+//         server: {
+//             baseDir: "./dest/"
+//         }
+//     });
+// })
 .task("copy", () => {
   return gulp.src(
     [ 
-      'dev/css/**',
-      'dev/librariesimg/**/*.js',
-      'dev/**/*.html',
-      'dev/img/**',
-      '!dev/img/sprite/**'
+      'css/**/*',
+      '**/*.html',
+      'img/**/*',
+      'app/**/*',
+      '!img/sprite/**'
     ],
     { base: 'dev/' }
   ).pipe( gulp.dest( 'dest' ) );
@@ -41,7 +41,6 @@ gulp
 .task('s', ['webserver'])
 .task('default',
     [
-        'ts',
-        'webserver'
+        'copy'
     ]
 );

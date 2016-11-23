@@ -4,7 +4,9 @@
   "globalDependencies": {
     "angular": "registry:dt/angular#1.5.0+20161016133926",
     "angular-animate": "registry:dt/angular-animate#1.5.0+20160709061515",
+    "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20160810191828",
     "jquery": "registry:dt/jquery#1.10.0+20160929162922",
+    "jqueryui": "registry:dt/jqueryui#1.11.0+20160727153854",
     "react": "registry:dt/react#0.14.0+20161008064207"
   }
 }

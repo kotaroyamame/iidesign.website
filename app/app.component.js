@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+// import { AjaxService } from './ajax.service';
 var MenuComponent = (function () {
     function MenuComponent() {
     }
@@ -27,6 +28,17 @@ var AppComponent = (function () {
         this.orVal = "これがオリジナルだ〜";
         this.yourName = "koo";
     }
+    AppComponent.prototype.ngOnInit = function () {
+    };
+    // getAjax(){
+    //   this.ajaxService.getJson()
+    //     .subscribe(
+    //     res => this.yourName = res
+    //     );
+    // }
+    AppComponent.prototype.cliked = function () {
+        this.yourName = "名無しさん";
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -38,4 +50,58 @@ AppComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], AppComponent);
 exports.AppComponent = AppComponent;
+var Page01 = (function () {
+    function Page01() {
+        this.orVal = " ここは１ページです";
+        this.yourName = "koo";
+    }
+    Page01.prototype.ngOnInit = function () {
+    };
+    // getAjax(){
+    //   this.ajaxService.getJson()
+    //     .subscribe(
+    //     res => this.yourName = res
+    //     );
+    // }
+    Page01.prototype.cliked = function () {
+        this.yourName = "名無しさん";
+    };
+    return Page01;
+}());
+Page01 = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'my-app',
+        templateUrl: "../view/page_01.html"
+    }),
+    __metadata("design:paramtypes", [])
+], Page01);
+exports.Page01 = Page01;
+var Page02 = (function () {
+    function Page02() {
+        this.orVal = " ここは１ページです";
+        this.yourName = "koo";
+    }
+    Page02.prototype.ngOnInit = function () {
+    };
+    // getAjax(){
+    //   this.ajaxService.getJson()
+    //     .subscribe(
+    //     res => this.yourName = res
+    //     );
+    // }
+    Page02.prototype.cliked = function () {
+        this.yourName = "名無しさん";
+    };
+    return Page02;
+}());
+Page02 = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'my-app',
+        templateUrl: "../view/page_02.html"
+    }),
+    __metadata("design:paramtypes", [])
+], Page02);
+exports.Page02 = Page02;
 //# sourceMappingURL=app.component.js.map

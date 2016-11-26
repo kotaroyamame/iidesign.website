@@ -10,39 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-// import { AjaxService } from './ajax.service';
 var AppComponent = (function () {
-    function AppComponent(route, router, routermodule, ngZone) {
+    function AppComponent(route, router, routermodule) {
         this.route = route;
         this.router = router;
         this.routermodule = routermodule;
-        this.ngZone = ngZone;
         this.orVal = "これがオリジナルだ〜";
         this.yourName = "koo";
     }
     AppComponent.prototype.ngOnInit = function () {
-        // this.router.events.
-        // localStorage.setItem("myItem", "value");
-        // this._sub = this.route.params.subscrive(params => {
-        // console.log(params);
-        // });
-        this.route.params.subscribe(function (params) {
-            console.log("aa");
-            console.log(params);
-        });
-        this.ngZone.run(function (e) {
-            console.log(e);
-        });
     };
-    AppComponent.prototype.active = function () {
-        console.log("active p");
-    };
-    // getAjax(){
-    //   this.ajaxService.getJson()
-    //     .subscribe(
-    //     res => this.yourName = res
-    //     );
-    // }
     AppComponent.prototype.cliked = function () {
         this.yourName = "名無しさん";
     };
@@ -70,8 +47,7 @@ AppComponent = __decorate([
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,
-        router_1.RouterModule,
-        core_1.NgZone])
+        router_1.RouterModule])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var Page01 = (function () {
@@ -81,12 +57,6 @@ var Page01 = (function () {
     }
     Page01.prototype.ngOnInit = function () {
     };
-    // getAjax(){
-    //   this.ajaxService.getJson()
-    //     .subscribe(
-    //     res => this.yourName = res
-    //     );
-    // }
     Page01.prototype.cliked = function () {
         this.yourName = "名無しさん";
     };
@@ -108,12 +78,6 @@ var Page02 = (function () {
     }
     Page02.prototype.ngOnInit = function () {
     };
-    // getAjax(){
-    //   this.ajaxService.getJson()
-    //     .subscribe(
-    //     res => this.yourName = res
-    //     );
-    // }
     Page02.prototype.cliked = function () {
         this.yourName = "名無しさん";
     };

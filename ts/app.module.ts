@@ -2,11 +2,12 @@ import { NgModule,animate } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from "@angular/forms";
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, Response } from '@angular/http';
 import { AppComponent, Page01, Page02} from './app.component';
 import { MenuComponent } from './app.component.menu';
+import { ChangeState, AjaxService } from './app.service';
 import { InfoForm } from './app.component.form';
-import { ChangeState,AjaxService } from './app.service';
+
 
 const appRoutes: Routes = [
   { path: 'page01', component: Page01 },
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
 @NgModule({
 	imports: [
     BrowserModule,
+    HttpModule,
   RouterModule.forRoot(appRoutes),
     FormsModule
   ],
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
   providers:[
     AjaxService,
     ChangeState,
-    HttpModule
+    
+    // Response
   ],
   bootstrap: [AppComponent]
 })

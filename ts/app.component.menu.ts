@@ -20,7 +20,9 @@ import { ChangeState } from './app.service';
 
 export class MenuComponent {
 
-  constructor(private changeState:ChangeState){}
+  constructor(
+    private changeState:ChangeState
+    ){}
 
   public active() {
     console.log("active");

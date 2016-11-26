@@ -43,30 +43,13 @@ export class AppComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-  private routermodule:RouterModule,
-  private ngZone:NgZone
+  private routermodule:RouterModule
   ){
 
   }
   ngOnInit(){
-    // this.router.events.
-    // localStorage.setItem("myItem", "value");
-    // this._sub = this.route.params.subscrive(params => {
-    // console.log(params);
-    // });
-    this.route.params.subscribe(params=>{
-    console.log("aa");
-  console.log(params);
-    });
-
-  this.ngZone.run((e)=>{
-    console.log(e);
-  });
 
 
-  }
-  active(){
-    console.log("active p");
   }
 
   // getAjax(){
@@ -77,7 +60,6 @@ export class AppComponent implements OnInit {
   // }
   cliked() {
     this.yourName = "名無しさん";
-
   }
 }
 @Component({

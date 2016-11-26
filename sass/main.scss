@@ -3,6 +3,9 @@
 li{
   list-style-type: none;
 }
+input{
+  border:1px #aaa solid;
+}
 .mainWrap{
   margin:auto;
   text-align:center;
@@ -10,6 +13,23 @@ li{
 .title{
   color:red;
   font-size:24px;
+}
+.infoForm{
+  &__input{
+    border:1px #aaa solid;
+    display:block;
+    margin:10px auto;
+    &.__mail{
+
+    }
+  }
+  &__button{
+    background-color:#f00;
+    border-radius:4px;
+    display:block;
+    margin:20px auto;
+    color:white;
+  }
 }
 
 .mainMenu{

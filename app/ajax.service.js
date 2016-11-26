@@ -2,12 +2,11 @@
 var AjaxService = (function () {
     function AjaxService(http) {
         this.http = http;
-        this.heroesUrl = 'app/heroes'; // URL to web api
+        this.heroesUrl = 'app/heroes';
     }
     AjaxService.prototype.getJson = function () {
         return this.http.get(this.heroesUrl);
     };
-    // レスポンスデータの整形処理
     AjaxService.prototype.extractData = function (res) {
         if (res.status < 200 || res.status >= 300) {
             throw new Error('Bad response status: ' + res.status);

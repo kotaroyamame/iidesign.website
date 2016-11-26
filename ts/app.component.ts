@@ -1,4 +1,5 @@
 import { Component,Directive,OnInit } from '@angular/core';
+import { ActivatedRoute, Router,CanDeactivate} from '@angular/router';
 // import { AjaxService } from './ajax.service';
 
 @Component({
@@ -21,8 +22,14 @@ export class MenuComponent {
 export class AppComponent implements OnInit {
   orVal = "これがオリジナルだ〜";
   yourName: string="koo";
-  constructor(){}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ){
+
+  }
   ngOnInit(){
+    // this.router.events.
 
   }
   // getAjax(){

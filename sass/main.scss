@@ -1,6 +1,24 @@
 @import "_sanitize.scss";
 
+li{
+  list-style-type: none;
+}
+.mainWrap{
+  margin:auto;
+  text-align:center;
+}
 .title{
   color:red;
   font-size:24px;
+}
+
+.mainMenu{
+  &__menu{
+    display:inline-block;
+    line-height:30px;
+    padding:0 30px;
+    background-color:rgba(200,180,190,0.8);
+    border-radius: 8px 8px 0 0px;
+    text-align:center;
+  }
 }

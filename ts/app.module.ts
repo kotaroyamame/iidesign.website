@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from '@angular/http';
 import { AppComponent, Page01, Page02, MenuComponent } from './app.component';
+import { InfoForm } from './app.component.form';
 // import { AjaxService } from './ajax.service';
 
 const appRoutes: Routes = [
   { path: 'page01', component: Page01 },
   { path: 'page02', component: Page02 },
-  { path: '**', component: AppComponent }
+  { path: 'form', component: InfoForm},
+  { path: '**', component: Page01 }
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     Page01,
     Page02,
-    MenuComponent
+    MenuComponent,
+    InfoForm
   ],
   providers:[
     HttpModule

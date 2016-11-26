@@ -1,8 +1,10 @@
-<ul>
-    <li (click)="cliked()">English</li>
-    <li>日本語</li>
-</ul>
-<h1 class="title">ページ１</h1>
-<p>{{yourName}}さん</p>
-<p>これは１ページ目のコンテンツです</p>
-<main-menu></main-menu>
+
+<section>
+  <h1 class="title">ページ１</h1>
+  <p>{{yourName}}さん</p>
+  <p>これは１ページ目のコンテンツです</p>
+  <form action="">
+      <input type="text" (input)="yourName=$event.target.value" />
+      <button>名前を決める{{orVal}}</button>
+  </form>
+</section>

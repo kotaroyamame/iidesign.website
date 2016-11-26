@@ -15,10 +15,7 @@ var AjaxService = (function () {
         this.http = http;
     }
     AjaxService.prototype.get = function (url) {
-        return this.http.get(url)
-            .map(this.extractData)
-            .catch(this.handleError);
-        ;
+        return this.http.get(url);
     };
     AjaxService.prototype.post = function (url, body) {
         return this.http.post(url, body);

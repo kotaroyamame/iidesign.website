@@ -7,10 +7,8 @@ export class AjaxService {
   constructor(
     private http: Http
   ){}
-  get(url:string):Ovservable<any> {
-    return this.http.get(url)
-      .map(this.extractData)
-      .catch(this.handleError);;
+  get(url:string):any {
+    return this.http.get(url);
   }
   post(url:string,body:any){
     return this.http.post(url,body);

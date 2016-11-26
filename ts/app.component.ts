@@ -20,12 +20,12 @@ import { Routes,RouterModule,ActivatedRoute, Router,CanDeactivate} from '@angula
 	selector: 'my-app',
 	templateUrl:"../view/top.html",
   animations:[
-    trigger('routerLinkActive', [
-      state('__inactive',style({
+    trigger('myAnimate', [
+      state('inactive',style({
         backgroundColor:'#f00',
         transform:'scale(2)'
       })),
-      state('__active', style({
+      state('active', style({
         backgroundColor:'#0f0',
         transform:'scale(2)'
       })),
@@ -65,11 +65,30 @@ export class AppComponent implements OnInit {
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  templateUrl: "../view/page_01.html"
+  templateUrl: "../view/page_01.html",
+  animations: [
+    trigger('myAnimate', [
+      state('inactive',style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1)'
+      })),
+      state('active', style({
+        backgroundColor: '#eee',
+        transform: 'scale(2)'
+      })),
+      transition('inactive => active', [
+        animate('800ms ease-in')
+      ]),
+      transition('active => inactive', [
+        animate('800ms ease-in')
+      ])
+    ])
+  ]
 })
 export class Page01 implements OnInit {
   orVal = " ここは１ページです";
   yourName: string = "koo";
+  show: string = "active";
   constructor() { }
   ngOnInit() {
 
@@ -82,6 +101,10 @@ export class Page01 implements OnInit {
   // }
   cliked() {
     this.yourName = "名無しさん";
+    if (this.show == "active")
+      this.show = "inactive";
+    else
+      this.show = "active";
   }
 }
 @Component({

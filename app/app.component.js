@@ -31,12 +31,12 @@ AppComponent = __decorate([
         selector: 'my-app',
         templateUrl: "../view/top.html",
         animations: [
-            core_1.trigger('routerLinkActive', [
-                core_1.state('__inactive', core_1.style({
+            core_1.trigger('myAnimate', [
+                core_1.state('inactive', core_1.style({
                     backgroundColor: '#f00',
                     transform: 'scale(2)'
                 })),
-                core_1.state('__active', core_1.style({
+                core_1.state('active', core_1.style({
                     backgroundColor: '#0f0',
                     transform: 'scale(2)'
                 })),
@@ -54,11 +54,16 @@ var Page01 = (function () {
     function Page01() {
         this.orVal = " ここは１ページです";
         this.yourName = "koo";
+        this.show = "active";
     }
     Page01.prototype.ngOnInit = function () {
     };
     Page01.prototype.cliked = function () {
         this.yourName = "名無しさん";
+        if (this.show == "active")
+            this.show = "inactive";
+        else
+            this.show = "active";
     };
     return Page01;
 }());
@@ -66,7 +71,25 @@ Page01 = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'my-app',
-        templateUrl: "../view/page_01.html"
+        templateUrl: "../view/page_01.html",
+        animations: [
+            core_1.trigger('myAnimate', [
+                core_1.state('inactive', core_1.style({
+                    backgroundColor: '#cfd8dc',
+                    transform: 'scale(1)'
+                })),
+                core_1.state('active', core_1.style({
+                    backgroundColor: '#eee',
+                    transform: 'scale(2)'
+                })),
+                core_1.transition('inactive => active', [
+                    core_1.animate('800ms ease-in')
+                ]),
+                core_1.transition('active => inactive', [
+                    core_1.animate('800ms ease-in')
+                ])
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [])
 ], Page01);

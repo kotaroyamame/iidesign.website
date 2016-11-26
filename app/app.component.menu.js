@@ -9,19 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-// import { AjaxService } from './ajax.service';
-var InfoForm = (function () {
-    function InfoForm() {
+var app_service_1 = require("./app.service");
+var MenuComponent = (function () {
+    function MenuComponent(changeState) {
+        this.changeState = changeState;
     }
-    return InfoForm;
+    MenuComponent.prototype.active = function () {
+        console.log("active");
+        this.changeState.active();
+    };
+    return MenuComponent;
 }());
-InfoForm = __decorate([
+MenuComponent = __decorate([
     core_1.Component({
-        moduleId: module.id,
-        selector: 'info-form',
-        templateUrl: "../view/infoForm.html"
+        selector: 'main-menu',
+        templateUrl: "../view/menu.html",
     }),
-    __metadata("design:paramtypes", [])
-], InfoForm);
-exports.InfoForm = InfoForm;
-//# sourceMappingURL=app.component.form.js.map
+    __metadata("design:paramtypes", [app_service_1.ChangeState])
+], MenuComponent);
+exports.MenuComponent = MenuComponent;
+//# sourceMappingURL=app.component.menu.js.map

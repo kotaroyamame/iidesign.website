@@ -9,19 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-// import { AjaxService } from './ajax.service';
-var InfoForm = (function () {
-    function InfoForm() {
+var AjaxService = (function () {
+    function AjaxService() {
     }
-    return InfoForm;
+    AjaxService.prototype.anyMethod = function () { };
+    return AjaxService;
 }());
-InfoForm = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'info-form',
-        templateUrl: "../view/infoForm.html"
-    }),
+AjaxService = __decorate([
+    core_1.Injectable(),
     __metadata("design:paramtypes", [])
-], InfoForm);
-exports.InfoForm = InfoForm;
-//# sourceMappingURL=app.component.form.js.map
+], AjaxService);
+exports.AjaxService = AjaxService;
+var ChangeState = (function () {
+    function ChangeState() {
+    }
+    ChangeState.prototype.active = function () {
+        console.log("active service");
+    };
+    return ChangeState;
+}());
+ChangeState = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], ChangeState);
+exports.ChangeState = ChangeState;
+//# sourceMappingURL=app.service.js.map

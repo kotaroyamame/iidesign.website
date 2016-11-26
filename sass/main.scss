@@ -20,5 +20,8 @@ li{
     background-color:rgba(200,180,190,0.8);
     border-radius: 8px 8px 0 0px;
     text-align:center;
+    &.__active{
+      background-color:rgba(200,180,190,1);
+    }
   }
 }

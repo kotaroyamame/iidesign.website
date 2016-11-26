@@ -11,28 +11,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 // import { AjaxService } from './ajax.service';
-var MenuComponent = (function () {
-    function MenuComponent() {
-    }
-    return MenuComponent;
-}());
-MenuComponent = __decorate([
-    core_1.Component({
-        selector: 'main-menu',
-        templateUrl: "../view/menu.html",
-    }),
-    __metadata("design:paramtypes", [])
-], MenuComponent);
-exports.MenuComponent = MenuComponent;
 var AppComponent = (function () {
-    function AppComponent(route, router) {
+    function AppComponent(route, router, routermodule, ngZone) {
         this.route = route;
         this.router = router;
+        this.routermodule = routermodule;
+        this.ngZone = ngZone;
         this.orVal = "これがオリジナルだ〜";
         this.yourName = "koo";
     }
     AppComponent.prototype.ngOnInit = function () {
         // this.router.events.
+        // localStorage.setItem("myItem", "value");
+        // this._sub = this.route.params.subscrive(params => {
+        // console.log(params);
+        // });
+        this.route.params.subscribe(function (params) {
+            console.log("aa");
+            console.log(params);
+        });
+        this.ngZone.run(function (e) {
+            console.log(e);
+        });
+    };
+    AppComponent.prototype.active = function () {
+        console.log("active p");
     };
     // getAjax(){
     //   this.ajaxService.getJson()
@@ -49,10 +52,26 @@ AppComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'my-app',
-        templateUrl: "../view/top.html"
+        templateUrl: "../view/top.html",
+        animations: [
+            core_1.trigger('routerLinkActive', [
+                core_1.state('__inactive', core_1.style({
+                    backgroundColor: '#f00',
+                    transform: 'scale(2)'
+                })),
+                core_1.state('__active', core_1.style({
+                    backgroundColor: '#0f0',
+                    transform: 'scale(2)'
+                })),
+                core_1.transition('inacrive => acrive', core_1.animate('100ms ease-in')),
+                core_1.transition('acrive => inactive', core_1.animate('100ms ease-out'))
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router])
+        router_1.Router,
+        router_1.RouterModule,
+        core_1.NgZone])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var Page01 = (function () {

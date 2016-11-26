@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 
 import { Routes, RouterModule, ActivatedRoute, Router, CanDeactivate } from '@angular/router';
+import { ChangeState } from './app.service';
 
 @Component({
   selector: 'main-menu',
@@ -19,7 +20,10 @@ import { Routes, RouterModule, ActivatedRoute, Router, CanDeactivate } from '@an
 
 export class MenuComponent {
 
+  constructor(private changeState:ChangeState){}
+
   public active() {
     console.log("active");
+    this.changeState.active();
   }
 }

@@ -5,7 +5,7 @@ import { ActivatedRoute, Router,CanDeactivate} from '@angular/router';
 @Component({
   moduleId: module.id,
   selector: 'info-form',
-  templateUrl: "../view/infoForm.html",
+  templateUrl: "../view/infoForm.html"
 })
 
 export class InfoForm {

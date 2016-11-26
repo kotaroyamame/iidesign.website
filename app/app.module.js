@@ -10,7 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var router_1 = require("@angular/router");
+var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
+var app_component_menu_1 = require("./app.component.menu");
+var app_component_form_1 = require("./app.component.form");
+var app_service_1 = require("./app.service");
+var appRoutes = [
+    { path: 'page01', component: app_component_1.Page01 },
+    { path: 'page02', component: app_component_1.Page02 },
+    { path: 'form', component: app_component_form_1.InfoForm },
+    { path: '**', component: app_component_1.Page01 }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -18,8 +30,26 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [app_component_1.AppComponent],
+        imports: [
+            platform_browser_1.BrowserModule,
+            router_1.RouterModule.forRoot(appRoutes),
+            forms_1.FormsModule
+        ],
+        exports: [
+            router_1.RouterModule
+        ],
+        declarations: [
+            app_component_1.AppComponent,
+            app_component_1.Page01,
+            app_component_1.Page02,
+            app_component_menu_1.MenuComponent,
+            app_component_form_1.InfoForm
+        ],
+        providers: [
+            app_service_1.AjaxService,
+            app_service_1.ChangeState,
+            http_1.HttpModule
+        ],
         bootstrap: [app_component_1.AppComponent]
     }),
     __metadata("design:paramtypes", [])

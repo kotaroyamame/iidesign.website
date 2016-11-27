@@ -74,7 +74,7 @@ export class AppComponent implements OnInit {
       })),
       state('active', style({
         backgroundColor: '#eee',
-        transform: 'scale(2)'
+        transform: 'scale(1.1)'
       })),
       transition('inactive => active', [
         animate('800ms ease-in')

@@ -80,7 +80,7 @@ Page01 = __decorate([
                 })),
                 core_1.state('active', core_1.style({
                     backgroundColor: '#eee',
-                    transform: 'scale(2)'
+                    transform: 'scale(1.1)'
                 })),
                 core_1.transition('inactive => active', [
                     core_1.animate('800ms ease-in')

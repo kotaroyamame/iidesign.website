@@ -9,14 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var ng2_translate_1 = require("ng2-translate");
 var router_1 = require("@angular/router");
 var AppComponent = (function () {
-    function AppComponent(route, router, routermodule) {
+    function AppComponent(route, router, routermodule, translate) {
         this.route = route;
         this.router = router;
         this.routermodule = routermodule;
+        this.translate = translate;
         this.orVal = "これがオリジナルだ〜";
         this.yourName = "koo";
+        translate.setDefaultLang('en');
+        translate.use('en');
     }
     AppComponent.prototype.ngOnInit = function () {
     };
@@ -30,6 +34,7 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: "../view/top.html",
+        providers: [],
         animations: [
             core_1.trigger('myAnimate', [
                 core_1.state('inactive', core_1.style({
@@ -47,7 +52,8 @@ AppComponent = __decorate([
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,
-        router_1.RouterModule])
+        router_1.RouterModule,
+        ng2_translate_1.TranslateService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var Page01 = (function () {
@@ -80,7 +86,7 @@ Page01 = __decorate([
                 })),
                 core_1.state('active', core_1.style({
                     backgroundColor: '#eee',
-                    transform: 'scale(1.1)'
+                    transform: 'scale(1)'
                 })),
                 core_1.transition('inactive => active', [
                     core_1.animate('800ms ease-in')
@@ -100,6 +106,7 @@ var Page02 = (function () {
         this.yourName = "koo";
     }
     Page02.prototype.ngOnInit = function () {
+        console.log("ngOnInit");
     };
     Page02.prototype.cliked = function () {
         this.yourName = "名無しさん";

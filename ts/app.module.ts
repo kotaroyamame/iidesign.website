@@ -2,7 +2,14 @@ import { NgModule,animate } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from "@angular/forms";
+import { } from "@agular/translate";
 import { HttpModule, Http, Response } from '@angular/http';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateStaticLoader
+} from 'ng2-translate';
+
 import { AppComponent, Page01, Page02} from './app.component';
 import { MenuComponent } from './app.component.menu';
 import { ChangeState, AjaxService } from './app.service';
@@ -15,16 +22,24 @@ const appRoutes: Routes = [
   { path: 'form', component: InfoForm},
   { path: '**', component: Page01 }
 ];
-
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
 @NgModule({
 	imports: [
     BrowserModule,
     HttpModule,
-  RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes),
+    TranslateModule.forRoot({
+      provide:TranslateLoader,
+      useFactory:(createTranslateLoader),
+      deps:[Http]
+    }),
     FormsModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    TranslateModule
   ],
 
 	declarations: [

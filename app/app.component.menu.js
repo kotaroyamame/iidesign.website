@@ -37,7 +37,7 @@ MenuComponent = __decorate([
                 })),
                 core_1.state('hover', core_1.style({
                     backgroundColor: '#eee',
-                    transform: 'scale(1.1) translateY(10px)'
+                    transform: 'scale(1) translateY(10px)'
                 })),
                 core_1.transition('void => hover', [
                     core_1.animate('300ms linear')

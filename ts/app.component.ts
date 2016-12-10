@@ -10,6 +10,11 @@ import {
   NgZone
  } from '@angular/core';
 
+import {
+  TranslateService,
+  TranslatePipe
+} from 'ng2-translate';
+
 import { Routes,RouterModule,ActivatedRoute, Router,CanDeactivate} from '@angular/router';
 // import { AjaxService } from './ajax.service';
 
@@ -19,6 +24,7 @@ import { Routes,RouterModule,ActivatedRoute, Router,CanDeactivate} from '@angula
   moduleId:module.id,
 	selector: 'my-app',
 	templateUrl:"../view/top.html",
+  providers:[],
   animations:[
     trigger('myAnimate', [
       state('inactive',style({
@@ -43,10 +49,13 @@ export class AppComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-  private routermodule:RouterModule
+    private routermodule:RouterModule,
+    private translate:TranslateService
   ){
-
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
+  
   ngOnInit(){
 
 
@@ -74,7 +83,7 @@ export class AppComponent implements OnInit {
       })),
       state('active', style({
         backgroundColor: '#eee',
-        transform: 'scale(1.1)'
+        transform: 'scale(1)'
       })),
       transition('inactive => active', [
         animate('800ms ease-in')
@@ -117,7 +126,7 @@ export class Page02 implements OnInit {
   yourName: string = "koo";
   constructor() { }
   ngOnInit() {
-
+    console.log("ngOnInit");
   }
   // getAjax(){
   //   this.ajaxService.getJson()

@@ -24,7 +24,7 @@ import { ChangeState } from './app.service';
       })),
       state('hover', style({
         backgroundColor: '#eee',
-    transform: 'scale(1.1) translateY(10px)'
+    transform: 'scale(1) translateY(10px)'
       })),
       transition('void => hover', [
         animate('300ms linear')
@@ -38,7 +38,7 @@ import { ChangeState } from './app.service';
 
 export class MenuComponent {
 
-  public menus: Array<any> = [
+  private menus: Array<any> = [
     {state:"/page01",val:"Page1",hover:"void"},
   { state: "/page02", val: "Page2", hover: "void" },
   { state: "/form", val: "Form", hover: "void" }

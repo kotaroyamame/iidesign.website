@@ -1,0 +1,6 @@
+@mixin backIMG($src:null){
+  background-position: center center;
+  background-size: cover;
+  background-image: url($src);
+  display: block;
+}

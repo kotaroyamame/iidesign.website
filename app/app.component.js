@@ -24,6 +24,12 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
     };
+    AppComponent.prototype.changeEn = function () {
+        this.translate.use('en');
+    };
+    AppComponent.prototype.changeJa = function () {
+        this.translate.use('ja');
+    };
     AppComponent.prototype.cliked = function () {
         this.yourName = "名無しさん";
     };
@@ -34,7 +40,6 @@ AppComponent = __decorate([
         moduleId: module.id,
         selector: 'my-app',
         templateUrl: "../view/top.html",
-        providers: [],
         animations: [
             core_1.trigger('myAnimate', [
                 core_1.state('inactive', core_1.style({

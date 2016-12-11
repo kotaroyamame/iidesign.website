@@ -24,7 +24,6 @@ import { Routes,RouterModule,ActivatedRoute, Router,CanDeactivate} from '@angula
   moduleId:module.id,
 	selector: 'my-app',
 	templateUrl:"../view/top.html",
-  providers:[],
   animations:[
     trigger('myAnimate', [
       state('inactive',style({
@@ -59,6 +58,14 @@ export class AppComponent implements OnInit {
   ngOnInit(){
 
 
+  }
+
+  public changeEn(){
+    this.translate.use('en');
+  }
+
+  public changeJa(){
+    this.translate.use('ja');
   }
 
   // getAjax(){

@@ -1,0 +1,10 @@
+<ul>
+    <li (click)="changeEn()">English</li>
+    <li (click)="changeJa()">日本語</li>
+</ul>
+<header class="header">
+  <h1 class="header__title">{{'WELCOM' | translate}}</h1>
+</header>
+<main-menu></main-menu>
+<!-- <div [@routerLinkActive]="stateExpression"></div> -->
+<router-outlet></router-outlet>

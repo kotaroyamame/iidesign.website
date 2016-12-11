@@ -6,19 +6,20 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
+    "removeComments": true,
     "noImplicitAny": false,
     "outDir":"app/"
-    // "outFile":"app/mainApp.js"
   }
   ,
   "files": [
     "typings/index.d.ts",
+    "ts/app.service.ts",
     "ts/app.component.ts",
+    "ts/app.component.form.ts",
+    "ts/app.component.menu.ts",
     "ts/app.module.ts",
     "ts/main.ts"
   ]

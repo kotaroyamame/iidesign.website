@@ -1,0 +1,12 @@
+<ul>
+    <li (click)="cliked()">English</li>
+    <li>日本語</li>
+</ul>
+<h1 class="title">フロントエンドの森2にようこそ</h1>
+<form action="">
+    <input type="text" (input)="yourName=$event.target.value" />
+    <button>名前を決める{{orVal}}</button>
+</form>
+<p>あなたの名前は{{yourName}}</p>
+<a routerLink="/" routerLinkActive="active">Heroes</a>
+<main-menu></main-menu>

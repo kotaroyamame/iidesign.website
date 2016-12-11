@@ -1,0 +1,54 @@
+@import "_sanitize.scss";
+@import "_mixins.scss";
+li{
+  list-style-type: none;
+}
+input{
+  border:1px #aaa solid;
+}
+.mainWrap{
+  margin:auto;
+  text-align:center;
+}
+.header{
+  @include backIMG("/img/no-sprite/index.jpg");
+  height:400px;
+  &__title{
+    line-height: 400px;
+    color:red;
+    font-size:24px;
+  }
+}
+.infoForm{
+  &__input{
+    border:1px #aaa solid;
+    display:block;
+    margin:10px auto;
+    &.__mail{
+
+    }
+  }
+  &__button{
+    background-color:#f00;
+    border-radius:4px;
+    display:block;
+    margin:20px auto;
+    color:white;
+  }
+}
+
+.mainMenu{
+  background-color: #eee;
+  &__menu{
+    display:inline-block;
+    line-height:60px;
+    padding:0 30px;
+    margin:10px 20px;
+    background-color:rgba(200,180,190,0.8);
+    border-radius: 50%;
+    text-align:center;
+    &.__active{
+      background-color:rgba(200,180,190,1);
+    }
+  }
+}

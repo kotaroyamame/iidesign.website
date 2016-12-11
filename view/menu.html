@@ -1,1 +1,12 @@
-<menu></menu>
+
+<nav class="mainMenu">
+  <a 
+  *ngFor="let item of menus; let i = index;" 
+  class="mainMenu__menu" 
+  routerLink="{{item.state}}" 
+  routerLinkActive="__active" 
+  [@menuAnimate]="item.hover" 
+  (mouseenter)="item.hover='hover'"
+  (mouseleave)="item.hover='void'"
+  >{{item.val}}{{item.hover}}</a>
+</nav>

@@ -10,6 +10,11 @@ import {
   NgZone
  } from '@angular/core';
 
+import {
+  TranslateService,
+  TranslatePipe
+} from 'ng2-translate';
+
 import { Routes,RouterModule,ActivatedRoute, Router,CanDeactivate} from '@angular/router';
 // import { AjaxService } from './ajax.service';
 
@@ -20,12 +25,12 @@ import { Routes,RouterModule,ActivatedRoute, Router,CanDeactivate} from '@angula
 	selector: 'my-app',
 	templateUrl:"../view/top.html",
   animations:[
-    trigger('routerLinkActive', [
-      state('__inactive',style({
+    trigger('myAnimate', [
+      state('inactive',style({
         backgroundColor:'#f00',
         transform:'scale(2)'
       })),
-      state('__active', style({
+      state('active', style({
         backgroundColor:'#0f0',
         transform:'scale(2)'
       })),
@@ -43,30 +48,24 @@ export class AppComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-  private routermodule:RouterModule,
-  private ngZone:NgZone
+    private routermodule:RouterModule,
+    private translate:TranslateService
   ){
-
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
+  
   ngOnInit(){
-    // this.router.events.
-    // localStorage.setItem("myItem", "value");
-    // this._sub = this.route.params.subscrive(params => {
-    // console.log(params);
-    // });
-    this.route.params.subscribe(params=>{
-    console.log("aa");
-  console.log(params);
-    });
-
-  this.ngZone.run((e)=>{
-    console.log(e);
-  });
 
 
   }
-  active(){
-    console.log("active p");
+
+  public changeEn(){
+    this.translate.use('en');
+  }
+
+  public changeJa(){
+    this.translate.use('ja');
   }
 
   // getAjax(){
@@ -77,17 +76,35 @@ export class AppComponent implements OnInit {
   // }
   cliked() {
     this.yourName = "名無しさん";
-
   }
 }
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  templateUrl: "../view/page_01.html"
+  templateUrl: "../view/page_01.html",
+  animations: [
+    trigger('myAnimate', [
+      state('inactive',style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1)'
+      })),
+      state('active', style({
+        backgroundColor: '#eee',
+        transform: 'scale(1)'
+      })),
+      transition('inactive => active', [
+        animate('800ms ease-in')
+      ]),
+      transition('active => inactive', [
+        animate('800ms ease-in')
+      ])
+    ])
+  ]
 })
 export class Page01 implements OnInit {
   orVal = " ここは１ページです";
   yourName: string = "koo";
+  show: string = "active";
   constructor() { }
   ngOnInit() {
 
@@ -100,6 +117,10 @@ export class Page01 implements OnInit {
   // }
   cliked() {
     this.yourName = "名無しさん";
+    if (this.show == "active")
+      this.show = "inactive";
+    else
+      this.show = "active";
   }
 }
 @Component({
@@ -112,7 +133,7 @@ export class Page02 implements OnInit {
   yourName: string = "koo";
   constructor() { }
   ngOnInit() {
-
+    console.log("ngOnInit");
   }
   // getAjax(){
   //   this.ajaxService.getJson()

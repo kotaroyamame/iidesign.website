@@ -1,6 +1,12 @@
 
 <nav class="mainMenu">
-  <a class="mainMenu__menu" routerLink="/page01" routerLinkActive="__active" (click)="active()">Page01</a>
-  <a class="mainMenu__menu" routerLink="/page02" routerLinkActive="__active">Page02</a>
-  <a class="mainMenu__menu" routerLink="/form" routerLinkActive="__active">Form</a>
+  <a 
+  *ngFor="let item of menus; let i = index;" 
+  class="mainMenu__menu" 
+  routerLink="{{item.state}}" 
+  routerLinkActive="__active" 
+  [@menuAnimate]="item.hover" 
+  (mouseenter)="item.hover='hover'"
+  (mouseleave)="item.hover='void'"
+  >{{item.val}}{{item.hover}}</a>
 </nav>

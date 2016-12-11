@@ -9,15 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var AjaxService = (function () {
-    function AjaxService() {
+    function AjaxService(http) {
+        this.http = http;
     }
-    AjaxService.prototype.anyMethod = function () { };
+    AjaxService.prototype.get = function (url) {
+        return this.http.get(url);
+    };
+    AjaxService.prototype.post = function (url, body) {
+        return this.http.post(url, body);
+    };
+    AjaxService.prototype.anyMethod = function () {
+        console.log("service anyMethod");
+    };
     return AjaxService;
 }());
 AjaxService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [http_1.Http])
 ], AjaxService);
 exports.AjaxService = AjaxService;
 var ChangeState = (function () {

@@ -13,6 +13,11 @@ var app_service_1 = require("./app.service");
 var MenuComponent = (function () {
     function MenuComponent(changeState) {
         this.changeState = changeState;
+        this.menus = [
+            { state: "/page01", val: "Page1", hover: "void" },
+            { state: "/page02", val: "Page2", hover: "void" },
+            { state: "/form", val: "Form", hover: "void" }
+        ];
     }
     MenuComponent.prototype.active = function () {
         console.log("active");
@@ -24,6 +29,24 @@ MenuComponent = __decorate([
     core_1.Component({
         selector: 'main-menu',
         templateUrl: "../view/menu.html",
+        animations: [
+            core_1.trigger('menuAnimate', [
+                core_1.state('void', core_1.style({
+                    backgroundColor: '#cfd8dc',
+                    transform: 'scale(1) translateY(0)'
+                })),
+                core_1.state('hover', core_1.style({
+                    backgroundColor: '#eee',
+                    transform: 'scale(1) translateY(10px)'
+                })),
+                core_1.transition('void => hover', [
+                    core_1.animate('300ms linear')
+                ]),
+                core_1.transition('hover => void', [
+                    core_1.animate('300ms linear')
+                ])
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [app_service_1.ChangeState])
 ], MenuComponent);

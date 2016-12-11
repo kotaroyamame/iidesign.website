@@ -9,10 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-// import { AjaxService } from './ajax.service';
+var app_service_1 = require("./app.service");
 var InfoForm = (function () {
-    function InfoForm() {
+    function InfoForm(ajax) {
+        this.ajax = ajax;
+        this.name = "";
+        this.mail = "";
+        this.init();
     }
+    InfoForm.prototype.init = function () {
+        console.log(localStorage.getItem("name"));
+        if (localStorage.getItem("name")) {
+            this.name = localStorage.getItem("name");
+        }
+        if (localStorage.getItem("mail")) {
+            this.mail = localStorage.getItem("mail");
+        }
+    };
+    InfoForm.prototype.submit = function () {
+        localStorage.setItem("name", this.name);
+        localStorage.setItem("mail", this.mail);
+        console.log("submit" + this.name + this.mail);
+        this.ajax.anyMethod();
+    };
     return InfoForm;
 }());
 InfoForm = __decorate([
@@ -21,7 +40,7 @@ InfoForm = __decorate([
         selector: 'info-form',
         templateUrl: "../view/infoForm.html"
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [app_service_1.AjaxService])
 ], InfoForm);
 exports.InfoForm = InfoForm;
 //# sourceMappingURL=app.component.form.js.map

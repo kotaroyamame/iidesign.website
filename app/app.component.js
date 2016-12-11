@@ -9,40 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var ng2_translate_1 = require("ng2-translate");
 var router_1 = require("@angular/router");
-// import { AjaxService } from './ajax.service';
 var AppComponent = (function () {
-    function AppComponent(route, router, routermodule, ngZone) {
+    function AppComponent(route, router, routermodule, translate) {
         this.route = route;
         this.router = router;
         this.routermodule = routermodule;
-        this.ngZone = ngZone;
+        this.translate = translate;
         this.orVal = "これがオリジナルだ〜";
         this.yourName = "koo";
+        translate.setDefaultLang('en');
+        translate.use('en');
     }
     AppComponent.prototype.ngOnInit = function () {
-        // this.router.events.
-        // localStorage.setItem("myItem", "value");
-        // this._sub = this.route.params.subscrive(params => {
-        // console.log(params);
-        // });
-        this.route.params.subscribe(function (params) {
-            console.log("aa");
-            console.log(params);
-        });
-        this.ngZone.run(function (e) {
-            console.log(e);
-        });
     };
-    AppComponent.prototype.active = function () {
-        console.log("active p");
+    AppComponent.prototype.changeEn = function () {
+        this.translate.use('en');
     };
-    // getAjax(){
-    //   this.ajaxService.getJson()
-    //     .subscribe(
-    //     res => this.yourName = res
-    //     );
-    // }
+    AppComponent.prototype.changeJa = function () {
+        this.translate.use('ja');
+    };
     AppComponent.prototype.cliked = function () {
         this.yourName = "名無しさん";
     };
@@ -54,12 +41,12 @@ AppComponent = __decorate([
         selector: 'my-app',
         templateUrl: "../view/top.html",
         animations: [
-            core_1.trigger('routerLinkActive', [
-                core_1.state('__inactive', core_1.style({
+            core_1.trigger('myAnimate', [
+                core_1.state('inactive', core_1.style({
                     backgroundColor: '#f00',
                     transform: 'scale(2)'
                 })),
-                core_1.state('__active', core_1.style({
+                core_1.state('active', core_1.style({
                     backgroundColor: '#0f0',
                     transform: 'scale(2)'
                 })),
@@ -71,24 +58,23 @@ AppComponent = __decorate([
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,
         router_1.RouterModule,
-        core_1.NgZone])
+        ng2_translate_1.TranslateService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 var Page01 = (function () {
     function Page01() {
         this.orVal = " ここは１ページです";
         this.yourName = "koo";
+        this.show = "active";
     }
     Page01.prototype.ngOnInit = function () {
     };
-    // getAjax(){
-    //   this.ajaxService.getJson()
-    //     .subscribe(
-    //     res => this.yourName = res
-    //     );
-    // }
     Page01.prototype.cliked = function () {
         this.yourName = "名無しさん";
+        if (this.show == "active")
+            this.show = "inactive";
+        else
+            this.show = "active";
     };
     return Page01;
 }());
@@ -96,7 +82,25 @@ Page01 = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'my-app',
-        templateUrl: "../view/page_01.html"
+        templateUrl: "../view/page_01.html",
+        animations: [
+            core_1.trigger('myAnimate', [
+                core_1.state('inactive', core_1.style({
+                    backgroundColor: '#cfd8dc',
+                    transform: 'scale(1)'
+                })),
+                core_1.state('active', core_1.style({
+                    backgroundColor: '#eee',
+                    transform: 'scale(1)'
+                })),
+                core_1.transition('inactive => active', [
+                    core_1.animate('800ms ease-in')
+                ]),
+                core_1.transition('active => inactive', [
+                    core_1.animate('800ms ease-in')
+                ])
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [])
 ], Page01);
@@ -107,13 +111,8 @@ var Page02 = (function () {
         this.yourName = "koo";
     }
     Page02.prototype.ngOnInit = function () {
+        console.log("ngOnInit");
     };
-    // getAjax(){
-    //   this.ajaxService.getJson()
-    //     .subscribe(
-    //     res => this.yourName = res
-    //     );
-    // }
     Page02.prototype.cliked = function () {
         this.yourName = "名無しさん";
     };
